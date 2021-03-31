@@ -128,17 +128,22 @@ export type Update<State> = {
 };
 
 export type UpdateQueue<State> = {
+  // 本次更新前该Fiber节点的state，Update基于该state计算更新后的state
   baseState: State,
 
+  // 队列中的第一个`Update`
   firstUpdate: Update<State> | null,
   lastUpdate: Update<State> | null,
 
+  // 第一个捕获类型的`Update`
   firstCapturedUpdate: Update<State> | null,
   lastCapturedUpdate: Update<State> | null,
 
+  // 第一个`side effect`
   firstEffect: Update<State> | null,
   lastEffect: Update<State> | null,
 
+  // 第一个和最后一个捕获产生的`side effect`
   firstCapturedEffect: Update<State> | null,
   lastCapturedEffect: Update<State> | null,
 };

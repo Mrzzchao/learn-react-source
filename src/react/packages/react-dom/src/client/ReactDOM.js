@@ -586,7 +586,7 @@ function legacyRenderSubtreeIntoContainer(
   let root: _ReactSyncRoot = (container._reactRootContainer: any);
   let fiberRoot;
   if (!root) {
-    // Initial mount
+    // container指ReactDOM.render的第二个参数（即应用挂载的DOM节点）
     root = container._reactRootContainer = legacyCreateRootFromDOMContainer(
       container,
       forceHydrate,

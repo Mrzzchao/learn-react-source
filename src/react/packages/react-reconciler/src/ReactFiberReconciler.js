@@ -156,6 +156,7 @@ function scheduleRootUpdate(
     }
   }
 
+  // 创建更新对象
   const update = createUpdate(expirationTime, suspenseConfig);
   // Caution: React DevTools currently depends on this property
   // being called "element".
@@ -172,6 +173,7 @@ function scheduleRootUpdate(
     update.callback = callback;
   }
 
+  // 创建updateQueue,
   enqueueUpdate(current, update);
   scheduleWork(current, expirationTime);
 
