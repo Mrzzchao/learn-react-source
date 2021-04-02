@@ -924,6 +924,8 @@ function updateHostRoot(current, workInProgress, renderExpirationTime) {
   const nextProps = workInProgress.pendingProps;
   const prevState = workInProgress.memoizedState;
   const prevChildren = prevState !== null ? prevState.element : null;
+
+  // 执行updateQueue的更新
   processUpdateQueue(
     workInProgress,
     updateQueue,

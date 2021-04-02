@@ -382,6 +382,7 @@ export function computeUniqueAsyncExpiration(): ExpirationTime {
   return result;
 }
 
+// 调度更新
 export function scheduleUpdateOnFiber(
   fiber: Fiber,
   expirationTime: ExpirationTime,
