@@ -458,7 +458,6 @@ export const scheduleWork = scheduleUpdateOnFiber;
 
 // 从触发状态更新的fiber一直向上遍历到rootFiber，并返回rootFiber
 function markUpdateTimeFromFiberToRoot(fiber, expirationTime) {
-  debugger
   // Update the source fiber's expiration time
   if (fiber.expirationTime < expirationTime) {
     fiber.expirationTime = expirationTime;

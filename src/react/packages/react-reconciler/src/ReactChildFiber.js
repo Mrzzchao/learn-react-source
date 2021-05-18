@@ -1302,7 +1302,6 @@ function ChildReconciler(shouldTrackSideEffects) {
       newChild = newChild.props.children;
     }
 
-    debugger
     // Handle object types
     const isObject = typeof newChild === 'object' && newChild !== null;
 

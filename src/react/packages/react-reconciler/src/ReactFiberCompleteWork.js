@@ -738,6 +738,7 @@ function completeWork(
             }
           }
         } else {
+          // 为fiber创建对应DOM节点
           let instance = createInstance(
             type,
             newProps,
@@ -745,7 +746,8 @@ function completeWork(
             currentHostContext,
             workInProgress,
           );
-
+          
+          // 将子孙DOM节点插入刚生成的DOM节点中
           appendAllChildren(instance, workInProgress, false, false);
 
           // This needs to be set before we mount Flare event listeners
@@ -762,9 +764,7 @@ function completeWork(
             }
           }
 
-          // Certain renderers require commit-time effects for initial mount.
-          // (eg DOM renderer supports auto-focus for certain elements).
-          // Make sure such renderers get scheduled for later work.
+          // 与update逻辑中的updateHostComponent类似的处理props的过程
           if (
             finalizeInitialChildren(
               instance,
