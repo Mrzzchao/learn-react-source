@@ -1543,6 +1543,7 @@ function performUnitOfWork(unitOfWork: Fiber): Fiber | null {
 
   resetCurrentDebugFiberInDEV();
   unitOfWork.memoizedProps = unitOfWork.pendingProps;
+  // 返回null 代表子树不需要更新，直接走completeUnitOfWork
   if (next === null) {
     // If this doesn't spawn new work, complete the current work.
     next = completeUnitOfWork(unitOfWork);
@@ -1595,6 +1596,7 @@ function completeUnitOfWork(unitOfWork: Fiber): Fiber | null {
         // Append all the effects of the subtree and this fiber onto the effect
         // list of the parent. The completion order of the children affects the
         // side-effect order.
+        // 存在effectTag的Fiber节点会被保存在一条被称为effectList的单向链表中。
         if (returnFiber.firstEffect === null) {
           returnFiber.firstEffect = workInProgress.firstEffect;
         }
